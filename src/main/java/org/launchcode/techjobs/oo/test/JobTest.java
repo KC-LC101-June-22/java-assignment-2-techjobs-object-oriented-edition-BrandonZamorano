@@ -57,4 +57,19 @@ public class JobTest {
         assertEquals('\n',result.charAt(result.length() - 1));
     }
 
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String expected = "";
+        expected += "\nID: " + job.getId();
+        expected += "\nName: " + job.getName();
+        expected += "\nEmployer: " + job.getEmployer();
+        expected += "\nLocation: " + job.getLocation();
+        expected += "\nPosition Type: " + job.getPositionType();
+        expected += "\nCore Competency: " + job.getCoreCompetency();
+        expected += "\n";
+
+        assertEquals(expected, job.toString());
+    }
+
 }
