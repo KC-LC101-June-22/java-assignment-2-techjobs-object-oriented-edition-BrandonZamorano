@@ -49,4 +49,12 @@ public class JobTest {
         assertFalse(job1.equals(job2));
     }
 
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String result = job.toString();
+        assertEquals('\n',result.charAt(0));
+        assertEquals('\n',result.charAt(result.length() - 1));
+    }
+
 }
