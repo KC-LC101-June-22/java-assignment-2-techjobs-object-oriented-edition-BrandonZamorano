@@ -87,7 +87,12 @@ public class Job {
     @Override
     public String toString() {
         String output = "";
-        output += "\n";
+        output += "\nID: " + getId();
+        output += "\nName: " + getName();
+        output += "\nEmployer: " + getEmployer();
+        output += "\nLocation: " + getLocation();
+        output += "\nPosition Type: " + getPositionType();
+        output += "\nCore Competency: " + getCoreCompetency();
         output += "\n";
 
         return output;
