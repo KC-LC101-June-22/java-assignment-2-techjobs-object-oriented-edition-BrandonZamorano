@@ -3,9 +3,9 @@ package org.launchcode.techjobs.oo.test;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-import org.launchcode.techjobs.oo.Job;
+import org.launchcode.techjobs.oo.*;
 
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.*;
 
 /**
  * Created by LaunchCode
@@ -19,6 +19,26 @@ public class JobTest {
         Job job2 = new Job();
 
         assertNotEquals(job1.getId(), job2.getId());
+    }
+
+    @Test
+    public void testJobConstructorSetsAllFields() {
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        assertEquals("Product tester", job.getName());
+        assertTrue(job.getName() instanceof String);
+
+        assertEquals("ACME", job.getEmployer().getValue());
+        assertTrue(job.getEmployer() instanceof Employer);
+
+        assertEquals("Desert", job.getLocation().getValue());
+        assertTrue(job.getLocation() instanceof Location);
+
+        assertEquals("Quality control", job.getPositionType().getValue());
+        assertTrue(job.getPositionType() instanceof PositionType);
+
+        assertEquals("Persistence", job.getCoreCompetency().getValue());
+        assertTrue(job.getCoreCompetency() instanceof CoreCompetency);
     }
 
 }
