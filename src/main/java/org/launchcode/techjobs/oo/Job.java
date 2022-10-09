@@ -86,42 +86,22 @@ public class Job {
 
     @Override
     public String toString() {
-        String output = "";
-        output += "\nID: " + getId();
-        output += "\nName: ";
-        if (getName().isEmpty()) {
-            output += "Data not available";
-        } else {
-            output += getName();
+        if (name == null && employer == null && location == null && positionType == null && coreCompetency == null) {
+            return "\nOOPS! This job does not seem to exist.\n";
         }
-        output += "\nEmployer: ";
-        if ((getEmployer().getValue().isEmpty())) {
-            output += "Data not available";
-        } else {
-            output += getEmployer();
-        }
-        output += "\nLocation: ";
-        if ((getLocation().getValue().isEmpty())) {
-            output += "Data not available";
-        } else {
 
-            output += getLocation();
-        }
-        output += "\nPosition Type: ";
-        if ((getPositionType().getValue().isEmpty())) {
-            output += "Data not available";
-        } else {
-            output += getPositionType();
-        }
-        output += "\nCore Competency: ";
-        if (getCoreCompetency().getValue().isEmpty()) {
-            output += "Data not available";
-        } else {
-            output += getCoreCompetency();
+        StringBuilder stringBuilder = new StringBuilder();
+        String newLine = "\n";
 
-        }
-        output += "\n";
+        stringBuilder.append(newLine);
+        stringBuilder.append("ID: ").append(id).append(newLine);
+        stringBuilder.append("Name: ").append(name).append(newLine);
+        stringBuilder.append("Employer: ").append(employer).append(newLine);
+        stringBuilder.append("Location: ").append(location).append(newLine);
+        stringBuilder.append("Position Type: ").append(positionType).append(newLine);
+        stringBuilder.append("Core Competency: ").append(coreCompetency);
+        stringBuilder.append(newLine);
 
-        return output;
+        return stringBuilder.toString();
     }
 }
