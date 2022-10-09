@@ -88,11 +88,38 @@ public class Job {
     public String toString() {
         String output = "";
         output += "\nID: " + getId();
-        output += "\nName: " + getName();
-        output += "\nEmployer: " + getEmployer();
-        output += "\nLocation: " + getLocation();
-        output += "\nPosition Type: " + getPositionType();
-        output += "\nCore Competency: " + getCoreCompetency();
+        output += "\nName: ";
+        if (getName().isEmpty()) {
+            output += "Data not available";
+        } else {
+            output += getName();
+        }
+        output += "\nEmployer: ";
+        if ((getEmployer().getValue().isEmpty())) {
+            output += "Data not available";
+        } else {
+            output += getEmployer();
+        }
+        output += "\nLocation: ";
+        if ((getLocation().getValue().isEmpty())) {
+            output += "Data not available";
+        } else {
+
+            output += getLocation();
+        }
+        output += "\nPosition Type: ";
+        if ((getPositionType().getValue().isEmpty())) {
+            output += "Data not available";
+        } else {
+            output += getPositionType();
+        }
+        output += "\nCore Competency: ";
+        if (getCoreCompetency().getValue().isEmpty()) {
+            output += "Data not available";
+        } else {
+            output += getCoreCompetency();
+
+        }
         output += "\n";
 
         return output;
